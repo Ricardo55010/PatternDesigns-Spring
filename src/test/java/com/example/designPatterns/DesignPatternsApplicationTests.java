@@ -1,5 +1,9 @@
 package com.example.designPatterns;
 
+import com.example.designPatterns.Adapter.Apple;
+import com.example.designPatterns.Adapter.AppleAdapter;
+import com.example.designPatterns.Adapter.MoroOrange;
+import com.example.designPatterns.Adapter.Orange;
 import com.example.designPatterns.Singleton.SingletonA;
 import com.example.designPatterns.Singleton.SingletonB;
 import com.example.designPatterns.prototype.NotPrototype;
@@ -49,4 +53,12 @@ class DesignPatternsApplicationTests {
 		Assertions.assertNotSame(prototypeA,prototypeB);
 	}
 
+
+	@Test
+	public void TestAdapter(){
+		Orange orange = new MoroOrange();
+		Apple apple = new AppleAdapter(orange);
+		System.out.println(apple.getVariety());
+		apple.eat();
+	}
 }
