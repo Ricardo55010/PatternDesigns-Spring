@@ -4,6 +4,9 @@ import com.example.designPatterns.Adapter.Apple;
 import com.example.designPatterns.Adapter.AppleAdapter;
 import com.example.designPatterns.Adapter.MoroOrange;
 import com.example.designPatterns.Adapter.Orange;
+import com.example.designPatterns.Decorator.Pepperoni;
+import com.example.designPatterns.Decorator.Pizza;
+import com.example.designPatterns.Decorator.ThickCrustPizza;
 import com.example.designPatterns.Singleton.SingletonA;
 import com.example.designPatterns.Singleton.SingletonB;
 import com.example.designPatterns.prototype.NotPrototype;
@@ -60,5 +63,18 @@ class DesignPatternsApplicationTests {
 		Apple apple = new AppleAdapter(orange);
 		System.out.println(apple.getVariety());
 		apple.eat();
+	}
+
+	@Test
+	public void TestDecorator(){
+		Pizza pizza = new ThickCrustPizza();
+		System.out.println(pizza.getCost());
+		System.out.println(pizza.getDescription());
+		Pepperoni pepperonipizza = new Pepperoni(pizza);
+		System.out.println(pepperonipizza.getCost());
+		System.out.println(pepperonipizza.getDescription());
+		Pepperoni doblepepperonipizza = new Pepperoni(pepperonipizza);
+		System.out.println(doblepepperonipizza.getCost());
+		System.out.println(doblepepperonipizza.getDescription());
 	}
 }
